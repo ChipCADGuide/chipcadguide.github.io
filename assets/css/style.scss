@@ -1,0 +1,75 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+// Dark theme overrides
+:root {
+  --color-fg: #e6edf3;
+  --color-bg: #0d1117;
+  --color-border: #30363d;
+  --color-canvas-default: #010409;
+  --color-canvas-subtle: #161b22;
+  --color-canvas-inset: #0d1117;
+  --color-canvas-overlay: #1c2128;
+  --color-canvas-backdrop: #010409;
+  --color-neutral-muted: #6e7681;
+  --color-neutral-subtle: #21262d;
+  --color-neutral-emphasis: #f0f6fc;
+  --color-accent-fg: #58a6ff;
+  --color-accent-emphasis: #1f6feb;
+  --color-accent-muted: #388bfd;
+  --color-accent-subtle: #0d3b66;
+  --color-success-fg: #3fb950;
+  --color-success-muted: #238636;
+  --color-success-subtle: #0f5323;
+  --color-danger-fg: #f85149;
+  --color-danger-muted: #da3633;
+  --color-danger-subtle: #67060c;
+  --color-warning-fg: #d29922;
+  --color-warning-muted: #9e6a03;
+  --color-warning-subtle: #5a3a1f;
+}
+
+body {
+  background-color: #0d1117;
+  color: #e6edf3;
+}
+
+a {
+  color: #58a6ff;
+  
+  &:hover {
+    color: #79c0ff;
+  }
+}
+
+.site-header {
+  background-color: #161b22;
+  border-bottom-color: #30363d;
+}
+
+.site-nav {
+  background-color: #0d1117;
+}
+
+.site-footer {
+  background-color: #0d1117;
+  border-top-color: #30363d;
+}
+
+.search-input {
+  background-color: #0d1117;
+  color: #e6edf3;
+  border-color: #30363d;
+}
+
+code {
+  background-color: #161b22;
+  color: #e6edf3;
+}
+
+.highlight {
+  background-color: #0d1117;
+  color: #e6edf3;
+}
