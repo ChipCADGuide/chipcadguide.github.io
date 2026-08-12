@@ -1,10 +1,10 @@
 ---
-title: Sedra/Smith Two-Stage CMOS Op-Amp
+title: Two-Stage CMOS Op-Amp
 parent: LayoutEditor Path
 nav_order: 4
 ---
 
-## Sedra/Smith Two-Stage CMOS Operational Amplifier (LayoutEditor)
+## Two-Stage CMOS Operational Amplifier (LayoutEditor)
 
 This tutorial targets a two-stage CMOS op-amp topology with:
 

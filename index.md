@@ -29,13 +29,13 @@ Choose one learning path and jump straight into the tutorials.
 - [Diode design (manual only)](./layouteditor/diode-design.html)
 - [AND gate](./layouteditor/and-gate.html)
 - [1-bit half adder + LayoutEditor simulation](./layouteditor/half-adder.html)
-- [Sedra/Smith two-stage CMOS operational amplifier](./layouteditor/two-stage-cmos-op-amp.html)
+- [Two-stage CMOS operational amplifier](./layouteditor/two-stage-cmos-op-amp.html)
 
 ### Python tutorials
 
 - [AND gate](./python/and-gate.html)
 - [1-bit half adder + Python/NGSpice simulation](./python/half-adder.html)
-- [Sedra/Smith two-stage CMOS operational amplifier](./python/two-stage-cmos-op-amp.html)
+- [Two-stage CMOS operational amplifier](./python/two-stage-cmos-op-amp.html)
 
 ### Custom design tutorials
 
