@@ -1,0 +1,7 @@
+title: Chip CAD Guide
+description: Step-by-step tutorials for basic .GDS chip layout at ~1 µm feature size.
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
+search_enabled: true
+color_scheme: light
