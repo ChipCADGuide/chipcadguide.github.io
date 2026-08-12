@@ -5,152 +5,273 @@ nav_order: 1
 
 # Chip CAD Guide
 
-A beginner-friendly tutorial site for learning basic `.GDS` chip design flows at around **1 µm** feature sizes.
+A brain-friendly tutorial track for **~1 µm** `.gds` design.
 
-This guide uses:
-- **GDSFactory (Python)** for scriptable layout generation
-- **Xschem** for simple schematic capture and netlist-oriented thinking
-- **KLayout** for viewing and sanity-checking generated geometry
+You can learn each topic in two ways:
+1. **LayoutEditor path** (draw and place by hand)
+2. **Python path** (script-based generation)
 
----
-
-## 0. Prerequisites
-
-1. Install Python 3.10+.
-2. Install GDSFactory:
-
-```bash
-pip install gdsfactory
-```
-
-3. Install KLayout and Xschem from their official releases.
-4. Create a working folder for your tutorial files.
-
-> **Screenshot placeholder (KLayout):** KLayout launch screen and loaded technology/layer view.
+We use **openCellLibrary** cells and **FET-based** examples.
 
 ---
 
-## 1. Tutorial A — Very Simple Diode-Style Structure
+## 0) Quick Setup
 
-This first example focuses on basic geometry operations in a `.gds` file.
+### Step 1 — Install tools
+- Install **LayoutEditor**
+- Install **Python 3.10+**
+- Install your preferred GDS Python package
 
-### 1.1 Create the layout in Python (GDSFactory)
+> **Image placeholder:** LayoutEditor installed and opened.
+
+### Step 2 — Prepare openCellLibrary
+- Download/open your openCellLibrary files
+- Keep all work at a **1 µm teaching scale**
+
+> **Image placeholder:** openCellLibrary files/folders visible.
+
+### Step 3 — Create a project folder
+- Make one folder for diode, AND gate, amplifier, and custom-device files
+
+> **Image placeholder:** clean project folder structure.
+
+---
+
+## 1) Tutorial A — Diode-Like Structure
+
+### A1) LayoutEditor path (draw by hand)
+
+**Step 1:** Create a new cell named `diode_1um_manual`.
+
+> **Image placeholder:** New cell dialog with cell name filled in.
+
+**Step 2:** Draw active area rectangle.
+
+> **Image placeholder:** Active area drawn and dimension labels shown.
+
+**Step 3:** Draw contact regions and place them symmetrically.
+
+> **Image placeholder:** Contact rectangles added.
+
+**Step 4:** Add metal pads for two terminals.
+
+> **Image placeholder:** Terminal metal added and colored by layer.
+
+**Step 5:** Label terminals `ANODE` and `CATHODE`.
+
+> **Image placeholder:** Text labels placed on metal.
+
+**Step 6:** Save as `diode_1um_manual.gds`.
+
+> **Image placeholder:** Save/export dialog with file name.
+
+### A2) Python path (openCellLibrary-oriented)
 
 ```python
-import gdsfactory as gf
+# Example skeleton: adapt to your openCellLibrary/Python environment
+# Goal: build a diode-like 2-terminal educational structure at ~1 µm scale
 
-c = gf.Component("diode_like_1um")
+from opencelllibrary import Library
 
-# Simple educational geometry, not a fabrication-ready PDK device
-active = c << gf.components.rectangle(size=(20.0, 8.0), layer=(1, 0))
-n_contact = c << gf.components.rectangle(size=(4.0, 4.0), layer=(2, 0))
-p_contact = c << gf.components.rectangle(size=(4.0, 4.0), layer=(2, 0))
+lib = Library("openCellLibrary")
+cell = lib.new_cell("diode_1um_py")
 
-n_contact.move((2.0, 2.0))
-p_contact.move((14.0, 2.0))
+cell.add_rect(layer="ACTIVE", x=0, y=0, w=20, h=8)
+cell.add_rect(layer="CONTACT", x=2, y=2, w=4, h=4)
+cell.add_rect(layer="CONTACT", x=14, y=2, w=4, h=4)
+cell.add_rect(layer="METAL1", x=1, y=1, w=6, h=6)
+cell.add_rect(layer="METAL1", x=13, y=1, w=6, h=6)
 
-c.write_gds("diode_like_1um.gds")
+cell.add_label("ANODE", x=2, y=7, layer="TEXT")
+cell.add_label("CATHODE", x=14, y=7, layer="TEXT")
+
+cell.write_gds("diode_1um_py.gds")
 ```
 
-### 1.2 View in KLayout
-
-1. Open `diode_like_1um.gds` in KLayout.
-2. Verify shapes and spacing visually.
-3. Measure critical dimensions and keep values near the 1 µm learning scale.
-
-> **Screenshot placeholder (KLayout):** Diode-like geometry with layer colors and ruler measurement.
-
-### 1.3 Optional Xschem companion
-
-Create a very simple two-terminal symbol/schematic that conceptually maps to the layout.
-
-> **Screenshot placeholder (Xschem):** Two-terminal diode symbol and net labels.
+> **Image placeholder:** Python script in editor.
+>
+> **Image placeholder:** Resulting diode GDS opened in LayoutEditor.
 
 ---
 
-## 2. Tutorial B — Simple AND Gate (Layout-Oriented Intro)
+## 2) Tutorial B — Simple AND Gate (FET, openCellLibrary)
 
-This section introduces a minimal gate-level layout concept.
+### B1) LayoutEditor path (drag and drop)
 
-### 2.1 Draw a simple logic block in Xschem
+**Step 1:** Create `and2_1um_manual` cell.
 
-1. Create an `and2` schematic with labeled pins: `A`, `B`, `Y`, `VDD`, `VSS`.
-2. Keep transistor sizing simple and symmetric for teaching purposes.
+> **Image placeholder:** New AND2 cell creation.
 
-> **Screenshot placeholder (Xschem):** AND2 schematic with input/output labels.
+**Step 2:** Open openCellLibrary cell browser.
 
-### 2.2 Build a corresponding block in GDSFactory
+> **Image placeholder:** openCellLibrary browser panel.
+
+**Step 3:** Drag PMOS and NMOS FET cells into layout.
+
+> **Image placeholder:** FET devices placed into PMOS/NMOS rows.
+
+**Step 4:** Route input nets `A` and `B`.
+
+> **Image placeholder:** Input metal routes highlighted.
+
+**Step 5:** Route output net `Y` and power rails `VDD`/`VSS`.
+
+> **Image placeholder:** Completed routing with clear labels.
+
+**Step 6:** Check spacing and keep dimensions near 1 µm learning rules.
+
+> **Image placeholder:** Dimension rulers and spacing checks.
+
+### B2) Python path (compose from openCellLibrary FET cells)
 
 ```python
-import gdsfactory as gf
+# Example skeleton for scripted AND2 composition from openCellLibrary cells
+from opencelllibrary import Library
 
-c = gf.Component("and2_block_1um")
+lib = Library("openCellLibrary")
+and2 = lib.new_cell("and2_1um_py")
 
-# Educational block-level layout placeholders
-pmos_row = c << gf.components.rectangle(size=(30.0, 6.0), layer=(1, 0))
-nmos_row = c << gf.components.rectangle(size=(30.0, 6.0), layer=(1, 0))
-metal_y = c << gf.components.rectangle(size=(4.0, 14.0), layer=(3, 0))
+pmos = lib.cell("PMOS_1UM")
+nmos = lib.cell("NMOS_1UM")
 
-pmos_row.move((0.0, 10.0))
-nmos_row.move((0.0, 0.0))
-metal_y.move((26.0, 1.0))
+and2.place(pmos, x=0, y=12)
+and2.place(pmos, x=12, y=12)
+and2.place(nmos, x=0, y=0)
+and2.place(nmos, x=12, y=0)
 
-c.write_gds("and2_block_1um.gds")
+and2.route("A")
+and2.route("B")
+and2.route("Y")
+and2.route("VDD")
+and2.route("VSS")
+
+and2.write_gds("and2_1um_py.gds")
 ```
 
-### 2.3 Inspect and annotate
-
-- Open the generated GDS in KLayout.
-- Add text labels to identify `A`, `B`, and `Y` routes.
-- Keep a table of widths/spacings for repeatability.
-
-> **Screenshot placeholder (KLayout):** AND2 block with highlighted output path.
+> **Image placeholder:** Python-based cell placement result.
+>
+> **Image placeholder:** Final AND2 block view with labels.
 
 ---
 
-## 3. Tutorial C — Simple Amplifier Block
+## 3) Tutorial C — Multi-Gate Example (More Advanced)
 
-This section demonstrates a basic analog block progression after logic.
+Build a small logic macro by combining multiple gates.
 
-### 3.1 Schematic first (Xschem)
+### C1) LayoutEditor path
 
-1. Draw a common-source style stage (`VIN`, `VOUT`, `VDD`, `VSS`).
-2. Add a resistive/active load according to your educational target.
+**Step 1:** Create `logic_macro_1um_manual`.
 
-> **Screenshot placeholder (Xschem):** Basic amplifier schematic and operating point notes.
+> **Image placeholder:** Empty macro cell.
 
-### 3.2 Layout sketch in GDSFactory
+**Step 2:** Drag and drop `INV`, `NAND2`, `AND2` from openCellLibrary.
+
+> **Image placeholder:** Gate instances arranged by rows.
+
+**Step 3:** Connect gates into one useful function (example: `(A AND B) -> INV`).
+
+> **Image placeholder:** Interconnect routing complete.
+
+**Step 4:** Label top-level pins and export GDS.
+
+> **Image placeholder:** Final macro pins and export settings.
+
+### C2) Python path
 
 ```python
-import gdsfactory as gf
+from opencelllibrary import Library
 
-c = gf.Component("simple_amplifier_block_1um")
+lib = Library("openCellLibrary")
+macro = lib.new_cell("logic_macro_1um_py")
 
-input_device = c << gf.components.rectangle(size=(10.0, 6.0), layer=(1, 0))
-load_device = c << gf.components.rectangle(size=(10.0, 6.0), layer=(1, 0))
-out_metal = c << gf.components.rectangle(size=(2.0, 10.0), layer=(3, 0))
+macro.place(lib.cell("AND2_1UM"), x=0, y=0)
+macro.place(lib.cell("INV_1UM"), x=40, y=0)
 
-input_device.move((2.0, 2.0))
-load_device.move((16.0, 2.0))
-out_metal.move((12.0, 2.0))
+macro.connect("AND2_1UM.Y", "INV_1UM.A")
+macro.expose_pin("AND2_1UM.A", "A")
+macro.expose_pin("AND2_1UM.B", "B")
+macro.expose_pin("INV_1UM.Y", "F")
 
-c.write_gds("simple_amplifier_block_1um.gds")
+macro.write_gds("logic_macro_1um_py.gds")
 ```
 
-### 3.3 Verify visually in KLayout
-
-- Confirm that blocks are separated clearly.
-- Label `VIN`, `VOUT`, and supply rails.
-- Record lessons learned before moving to tighter nodes.
-
-> **Screenshot placeholder (KLayout):** Amplifier block with labeled nodes and dimensions.
+> **Image placeholder:** Python macro net connectivity view.
 
 ---
 
-## 4. Suggested Next Steps
+## 4) Tutorial D — Simple FET Amplifier (Sedra/Smith Style Intro)
 
-1. Add real design-rule targets for your chosen process.
-2. Replace geometric placeholders with true device generators.
-3. Add screenshots in each placeholder section.
-4. Add downloadable script files per tutorial.
+### D1) LayoutEditor path
 
+**Step 1:** Create `cs_amp_1um_manual` cell.
+
+> **Image placeholder:** New amplifier cell.
+
+**Step 2:** Drag one NMOS input device and one load device from openCellLibrary.
+
+> **Image placeholder:** Devices dropped in place.
+
+**Step 3:** Route `VIN`, `VOUT`, `VDD`, `VSS`.
+
+> **Image placeholder:** Routed amplifier nets.
+
+**Step 4:** Add labels and check simple geometry consistency.
+
+> **Image placeholder:** Final labeled amplifier layout.
+
+### D2) Python path
+
+```python
+from opencelllibrary import Library
+
+lib = Library("openCellLibrary")
+amp = lib.new_cell("cs_amp_1um_py")
+
+amp.place(lib.cell("NMOS_1UM"), x=0, y=0)
+amp.place(lib.cell("PMOS_1UM"), x=18, y=10)  # load example
+
+amp.route("VIN")
+amp.route("VOUT")
+amp.route("VDD")
+amp.route("VSS")
+
+amp.write_gds("cs_amp_1um_py.gds")
+```
+
+> **Image placeholder:** Python amplifier placement view.
+>
+> **Image placeholder:** Final amplifier GDS in LayoutEditor.
+
+---
+
+## 5) Fully Custom Device Track — Microfluidics Layer
+
+For complex non-standard geometry (example: microfluidics), CAD-mechanical workflows are often easier.
+
+### Step 1 — Model channel geometry in FreeCAD or Solidworks
+
+> **Image placeholder:** 3D model / sketch of microfluidic channels.
+
+### Step 2 — Export 2D layer to `.dxf`
+
+> **Image placeholder:** Export menu and DXF settings.
+
+### Step 3 — Import `.dxf` into LayoutEditor
+
+> **Image placeholder:** DXF import dialog and scale settings.
+
+### Step 4 — Assign target layers and clean geometry
+
+> **Image placeholder:** Layer mapping panel and cleaned polygons.
+
+### Step 5 — Export final `.gds`
+
+> **Image placeholder:** Final microfluidic mask layer and exported GDS.
+
+---
+
+## 6) What to Add Next
+
+1. Replace placeholders with your screenshots.
+2. Add a downloadable file bundle for each tutorial.
+3. Add a one-page “common mistakes” section.

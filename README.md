@@ -1,6 +1,6 @@
 # chipcadguide.github.io
 
-Web-based guide for people who want to learn how to create `.GDS` chip designs.
+Web-based guide for people who want to learn how to create `.GDS` chip designs using **LayoutEditor** and **Python** tutorial paths.
 
 ## GitHub Pages setup
 
