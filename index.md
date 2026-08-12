@@ -3,6 +3,8 @@ title: Home
 nav_order: 1
 ---
 
+![AND Gate Layout Cover](./media/ANDGateLayout.png)
+
 ## Chip CAD Guide
 
 Choose one learning path and jump straight into the tutorials.
