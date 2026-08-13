@@ -19,4 +19,4 @@ Use this path when your design starts as a more complex custom structure in a me
 
 ## Tutorial
 
-1. [SolidWorks/FreeCAD to LayoutEditor workflow](./customdesign/solidworks-freecad-to-layouteditor/)
+1. [SolidWorks/FreeCAD to LayoutEditor workflow](./customdesign/solidworks-freecad-to-layouteditor.html)

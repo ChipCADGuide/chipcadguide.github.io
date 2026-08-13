@@ -10,6 +10,6 @@ Use this path if you want script-first layout generation and simulation.
 
 ## Tutorials
 
-1. [AND gate](./python/and-gate/)
-2. [1-bit half adder](./python/half-adder/)
-3. [Two-stage CMOS operational amplifier](./python/two-stage-cmos-op-amp/)
+1. [AND gate](./python/and-gate.html)
+2. [1-bit half adder](./python/half-adder.html)
+3. [Two-stage CMOS operational amplifier](./python/two-stage-cmos-op-amp.html)
