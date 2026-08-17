@@ -56,12 +56,17 @@ vdd
 vss
 ```
 
-## Check
+## Check and save
 
-Click **Check → Check CellView**.
-
-Do not continue until Glade reports:
+1. Click **Check → Check CellView**.
+2. Fix everything until Glade reports:
 
 ```text
 0 warnings, 0 errors
 ```
+
+3. Click **File → Save Cell**.
+4. Open **Tools → Library Browser**.
+5. Right-click your library name → **Save Library**.
+
+Do both saves before starting the layout.
