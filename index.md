@@ -3,40 +3,21 @@ title: Home
 nav_order: 1
 ---
 
-![AND Gate Layout Cover](./media/ANDGateLayout.png)
+# Chip CAD Guide
 
-## Chip CAD Guide
+A short, click-by-click path for building and simulating CMOS circuits with the **CNM25 APDK**, **Glade**, and **SpiceOpus**.
 
-Choose one learning path and jump straight into the tutorials.
+This website was made by Group 12 in the **2026 Summer** semester for **ENSC 440** to teach fellow undergrad student how to make their own .GDS design.
 
-- **[LayoutEditor Path](./layouteditor.html)** — manual layout workflow in LayoutEditor
-- **[Python Path](./python.html)** — script-driven workflow, including NGSpice simulation
-- **[Custom Design Path](./customdesign.html)** — import complex SolidWorks or FreeCAD geometry into LayoutEditor
+![Two-stage CMOS amplifier](./media/ANDGateLayout.png)
 
-> Diode design is available in the **LayoutEditor Path only**.
+## Follow in order
 
-## Quick setup (all paths)
+1. [Install the CNM25 tools](./install.html)
+2. [Build a CMOS inverter](./inverter.html)
+3. [Generate and route the inverter layout](./inverter-layout.html)
+4. [Build the two-stage CMOS amplifier](./two-stage-cmos-amplifier.html)
+5. [Simulate the amplifier in SpiceOpus](./simulate-amplifier.html)
+6. [Export a custom microfabricated design from CAD to GDS](./customdesign.html)
 
-1. Install **LayoutEditor**.
-2. Install **Python 3.10+**.
-3. Prepare your openCellLibrary files and a project folder for tutorial outputs.
-4. If you are starting from a 3D mechanical model, export a clean 2D profile to `.dxf` first.
-
-## Start here
-
-### LayoutEditor tutorials
-
-- [Diode design (manual only)](./layouteditor/diode-design.html)
-- [AND gate](./layouteditor/and-gate.html)
-- [1-bit half adder + LayoutEditor simulation](./layouteditor/half-adder.html)
-- [Two-stage CMOS operational amplifier](./layouteditor/two-stage-cmos-op-amp.html)
-
-### Python tutorials
-
-- [AND gate](./python/and-gate.html)
-- [1-bit half adder + Python/NGSpice simulation](./python/half-adder.html)
-- [Two-stage CMOS operational amplifier](./python/two-stage-cmos-op-amp.html)
-
-### Custom design tutorials
-
-- [SolidWorks/FreeCAD to LayoutEditor workflow](./customdesign/solidworks-freecad-to-layouteditor.html)
+> Use **Glade** for CNM25 schematic/layout work, **SpiceOpus** for simulation, and a DXF-capable layout tool such as **KLayout** for custom CAD-derived geometry.

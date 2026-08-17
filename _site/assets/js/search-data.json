@@ -1,0 +1,387 @@
+{"0": {
+    "doc": "6. Custom Microfabricated Designs",
+    "title": "6. Custom Microfabricated Designs",
+    "content": "Use this workflow when the mask geometry starts as a more complex 3D design, such as a microfluidic device. ",
+    "url": "/customdesign.html",
+    
+    "relUrl": "/customdesign.html"
+  },"1": {
+    "doc": "6. Custom Microfabricated Designs",
+    "title": "1. Build the 3D design",
+    "content": "Create the device in SolidWorks or another mechanical CAD program. This allows to define the device fully in 3D, including the fluidic channels, ports, and any other features of different heights compared to just a 2D design. ",
+    "url": "/customdesign.html#1-build-the-3d-design",
+    
+    "relUrl": "/customdesign.html#1-build-the-3d-design"
+  },"2": {
+    "doc": "6. Custom Microfabricated Designs",
+    "title": "2. Select the faces to fabricate",
+    "content": ". | Orient the model so the fabrication layer is easy to see. | Select only the faces that should become the lithography pattern. | Hold Ctrl to select multiple faces. | . The selected faces are the areas you want exported for fabrication. You may wish to create multiple layers for different heights, in which case you can repeat this process for each layer and export them separately. In this design there are three “floors”. This in turns creates far more prolonged fabrication and will require two more photomasks. ",
+    "url": "/customdesign.html#2-select-the-faces-to-fabricate",
+    
+    "relUrl": "/customdesign.html#2-select-the-faces-to-fabricate"
+  },"3": {
+    "doc": "6. Custom Microfabricated Designs",
+    "title": "3. Export the selected faces to DXF",
+    "content": ". | In SolidWorks, click File → Save As. | Choose DXF (.dxf) as the file type. | Export the selected faces. | Check the DXF/DWG preview. | Click Save when the geometry looks correct. | . ",
+    "url": "/customdesign.html#3-export-the-selected-faces-to-dxf",
+    
+    "relUrl": "/customdesign.html#3-export-the-selected-faces-to-dxf"
+  },"4": {
+    "doc": "6. Custom Microfabricated Designs",
+    "title": "4. Convert DXF to GDS",
+    "content": ". | Open the .dxf file in a layout program that supports DXF import, such as KLayout. | Check the dimensions and units. | Put the geometry on the desired GDS layer. | Save/export the layout as GDS (.gds). | . The .gds file can then be used by most lithography systems. ",
+    "url": "/customdesign.html#4-convert-dxf-to-gds",
+    
+    "relUrl": "/customdesign.html#4-convert-dxf-to-gds"
+  },"5": {
+    "doc": "6. Custom Microfabricated Designs",
+    "title": "Quick check",
+    "content": "Before fabrication, verify: . | the DXF scale is correct | only the intended faces were exported | no unwanted construction geometry is present | the GDS layer and dimensions are correct | . ",
+    "url": "/customdesign.html#quick-check",
+    
+    "relUrl": "/customdesign.html#quick-check"
+  },"6": {
+    "doc": "Home",
+    "title": "Chip CAD Guide",
+    "content": "A short, click-by-click path for building and simulating CMOS circuits with the CNM25 APDK, Glade, and SpiceOpus. This website was made by Group 12 in the 2026 Summer semester for ENSC 440 to teach fellow undergrad student how to make their own .GDS design. ",
+    "url": "/#chip-cad-guide",
+    
+    "relUrl": "/#chip-cad-guide"
+  },"7": {
+    "doc": "Home",
+    "title": "Follow in order",
+    "content": ". | Install the CNM25 tools | Build a CMOS inverter | Generate and route the inverter layout | Build the two-stage CMOS amplifier | Simulate the amplifier in SpiceOpus | Export a custom microfabricated design from CAD to GDS | . Use Glade for CNM25 schematic/layout work, SpiceOpus for simulation, and a DXF-capable layout tool such as KLayout for custom CAD-derived geometry. ",
+    "url": "/#follow-in-order",
+    
+    "relUrl": "/#follow-in-order"
+  },"8": {
+    "doc": "Home",
+    "title": "Home",
+    "content": " ",
+    "url": "/",
+    
+    "relUrl": "/"
+  },"9": {
+    "doc": "1. Install the CNM25 Tools",
+    "title": "1. Install the CNM25 Tools",
+    "content": " ",
+    "url": "/install.html",
+    
+    "relUrl": "/install.html"
+  },"10": {
+    "doc": "1. Install the CNM25 Tools",
+    "title": "Download",
+    "content": ". | Open the CNM25 APDK page. | Download Glade for your OS. | Download SpiceOpus for your OS. | Download the CNM25 APDK and extract it. | . You should have: . apdk/ ├── doc/ ├── glade/ └── spiceopus/ . ",
+    "url": "/install.html#download",
+    
+    "relUrl": "/install.html#download"
+  },"11": {
+    "doc": "1. Install the CNM25 Tools",
+    "title": "Windows setup",
+    "content": "Glade . | Open apdk/glade/glade.bat in a text editor. | Find: | . set GLADE_HOME=path_to_glade . | Replace path_to_glade with your Glade install folder. | Save the file. | Launch Glade with glade.bat. | . SpiceOpus . | Open apdk/spiceopus/spiceopus.bat. | Find: | . set OPUSHOME=path_to_spiceopus . | Replace path_to_spiceopus with your SpiceOpus install folder. | Save the file. | Launch SpiceOpus with spiceopus.bat. | . Always launch Glade and SpiceOpus using the APDK .bat/.sh scripts, not the bare executables. ",
+    "url": "/install.html#windows-setup",
+    
+    "relUrl": "/install.html#windows-setup"
+  },"12": {
+    "doc": "1. Install the CNM25 Tools",
+    "title": "Linux setup",
+    "content": ". | Edit apdk/glade/glade.sh and set GLADE_HOME to your Glade install path. | Edit apdk/spiceopus/spiceopus.sh and set OPUSHOME to your SpiceOpus install path. | Launch only with those .sh scripts. | . ",
+    "url": "/install.html#linux-setup",
+    
+    "relUrl": "/install.html#linux-setup"
+  },"13": {
+    "doc": "1. Install the CNM25 Tools",
+    "title": "Quick check",
+    "content": "In Glade, the Library Browser should contain at least: . | CNM25TechLib | SPICE3Lib | ExampleLib | . Then continue to the inverter. ",
+    "url": "/install.html#quick-check",
+    
+    "relUrl": "/install.html#quick-check"
+  },"14": {
+    "doc": "3. Inverter Layout",
+    "title": "3. Generate and Route the Inverter Layout",
+    "content": " ",
+    "url": "/inverter-layout.html#3-generate-and-route-the-inverter-layout",
+    
+    "relUrl": "/inverter-layout.html#3-generate-and-route-the-inverter-layout"
+  },"15": {
+    "doc": "3. Inverter Layout",
+    "title": "Create the layout from the schematic",
+    "content": ". | Open the inverter schematic. | Click Tools → Layout Generation. | Create a new layout view from the schematic. | Keep Create m factor instances enabled. | Use the schematic placement method. | Click OK. | . Glade places the PCells and shows yellow fly-lines for nets that still need routing. ",
+    "url": "/inverter-layout.html#create-the-layout-from-the-schematic",
+    
+    "relUrl": "/inverter-layout.html#create-the-layout-from-the-schematic"
+  },"16": {
+    "doc": "3. Inverter Layout",
+    "title": "Arrange the devices",
+    "content": ". | Put the PMOS above the NMOS. | Keep the shared gate path short. | Keep the drain/output connection short. | Put vdd at the top and vss at the bottom. | . ",
+    "url": "/inverter-layout.html#arrange-the-devices",
+    
+    "relUrl": "/inverter-layout.html#arrange-the-devices"
+  },"17": {
+    "doc": "3. Inverter Layout",
+    "title": "Route",
+    "content": ". | Route the common gate with metal/contact as required. | Route the common drain to vout. | Route PMOS source/body to vdd. | Route NMOS source/body to vss. | Finish all yellow fly-lines. | . ",
+    "url": "/inverter-layout.html#route",
+    
+    "relUrl": "/inverter-layout.html#route"
+  },"18": {
+    "doc": "3. Inverter Layout",
+    "title": "Check the layout",
+    "content": ". | Set the grid to 0.25 µm. | Run the CNM25 DRC. | Fix every reported violation before continuing. | . Optional 3D view: . ",
+    "url": "/inverter-layout.html#check-the-layout",
+    
+    "relUrl": "/inverter-layout.html#check-the-layout"
+  },"19": {
+    "doc": "3. Inverter Layout",
+    "title": "3. Inverter Layout",
+    "content": " ",
+    "url": "/inverter-layout.html",
+    
+    "relUrl": "/inverter-layout.html"
+  },"20": {
+    "doc": "2. Build a CMOS Inverter",
+    "title": "2. Build a CMOS Inverter",
+    "content": "This is the first Glade sanity check. For CNM25 MOSFETs, use L ≥ 3 µm. ",
+    "url": "/inverter.html",
+    
+    "relUrl": "/inverter.html"
+  },"21": {
+    "doc": "2. Build a CMOS Inverter",
+    "title": "Create the cell",
+    "content": ". | In Glade, create a new library for your work if you do not already have one. | Create a new cell named inverter. | Create/open its schematic view. | . ",
+    "url": "/inverter.html#create-the-cell",
+    
+    "relUrl": "/inverter.html#create-the-cell"
+  },"22": {
+    "doc": "2. Build a CMOS Inverter",
+    "title": "Place the PMOS",
+    "content": ". | Click Create → Instance. | Set: . | Library: CNM25TechLib | Cell: cnm25modp | View: symbol | . | Place it above the NMOS position. | Press q on the PMOS and set your w, l, and m values. | . ",
+    "url": "/inverter.html#place-the-pmos",
+    
+    "relUrl": "/inverter.html#place-the-pmos"
+  },"23": {
+    "doc": "2. Build a CMOS Inverter",
+    "title": "Place the NMOS",
+    "content": ". | Click Create → Instance. | Choose CNM25TechLib → cnm25modn → symbol. | Place it below the PMOS. | Press q and set w, l, and m. | . ",
+    "url": "/inverter.html#place-the-nmos",
+    
+    "relUrl": "/inverter.html#place-the-nmos"
+  },"24": {
+    "doc": "2. Build a CMOS Inverter",
+    "title": "Wire it",
+    "content": "Use Create → Wire (Shift+A). | Tie both gates together → vin. | Tie both drains together → vout. | PMOS source → vdd. | NMOS source → vss. | PMOS bulk/body → vdd. | NMOS bulk/body → vss. | . ",
+    "url": "/inverter.html#wire-it",
+    
+    "relUrl": "/inverter.html#wire-it"
+  },"25": {
+    "doc": "2. Build a CMOS Inverter",
+    "title": "Add pins",
+    "content": "Add pins for: . vin vout vdd vss . ",
+    "url": "/inverter.html#add-pins",
+    
+    "relUrl": "/inverter.html#add-pins"
+  },"26": {
+    "doc": "2. Build a CMOS Inverter",
+    "title": "Check",
+    "content": "Click Check → Check CellView. Do not continue until Glade reports: . 0 warnings, 0 errors . ",
+    "url": "/inverter.html#check",
+    
+    "relUrl": "/inverter.html#check"
+  },"27": {
+    "doc": "5. Simulate the Amplifier",
+    "title": "5. Simulate the Amplifier in SpiceOpus",
+    "content": "Use the Glade → CDL export → SpiceOpus flow here. Do not use Glade’s Simulate menu for this tutorial. Goal: apply a 1 kHz, 0.4 V-peak sine and check for about gain = 10. ",
+    "url": "/simulate-amplifier.html#5-simulate-the-amplifier-in-spiceopus",
+    
+    "relUrl": "/simulate-amplifier.html#5-simulate-the-amplifier-in-spiceopus"
+  },"28": {
+    "doc": "5. Simulate the Amplifier",
+    "title": "1. Create a simulation schematic",
+    "content": "Create a new Glade cell named Test with a schematic view. Place your amplifier symbol. ",
+    "url": "/simulate-amplifier.html#1-create-a-simulation-schematic",
+    
+    "relUrl": "/simulate-amplifier.html#1-create-a-simulation-schematic"
+  },"29": {
+    "doc": "5. Simulate the Amplifier",
+    "title": "2. Make the ±5 V supplies",
+    "content": "Place two SPICE3Lib → vdc sources. +5 V rail . Set: . dc = 5 . Connect it exactly like this: . top terminal = VDD bottom terminal = gnd . -5 V rail . Set the second source to: . dc = 5 . Reverse its connection: . top terminal = gnd bottom terminal = VSS . With dc = 5, this makes VSS = -5 V. ",
+    "url": "/simulate-amplifier.html#2-make-the-5-v-supplies",
+    
+    "relUrl": "/simulate-amplifier.html#2-make-the-5-v-supplies"
+  },"30": {
+    "doc": "5. Simulate the Amplifier",
+    "title": "3. Add SPICE ground",
+    "content": ". | Place SPICE3Lib → ground anywhere. | Press q. | Set: | . node0 = gnd . The ground symbol has no wire pin. Use the net name gnd on the actual ground wires. ",
+    "url": "/simulate-amplifier.html#3-add-spice-ground",
+    
+    "relUrl": "/simulate-amplifier.html#3-add-spice-ground"
+  },"31": {
+    "doc": "5. Simulate the Amplifier",
+    "title": "4. Add the sine input",
+    "content": "Place SPICE3Lib → vsin. Press q and set: . vo = 0 va = 0.4 freq = 1k dc = 0 . Connect the source between vinp and gnd. ",
+    "url": "/simulate-amplifier.html#4-add-the-sine-input",
+    
+    "relUrl": "/simulate-amplifier.html#4-add-the-sine-input"
+  },"32": {
+    "doc": "5. Simulate the Amplifier",
+    "title": "5. Set gain = 10",
+    "content": "Use two SPICE3Lib → res resistors: . vout --- 90k --- vinn --- 10k --- gnd . Because: . 1 + 90k/10k = 10 . ",
+    "url": "/simulate-amplifier.html#5-set-gain--10",
+    
+    "relUrl": "/simulate-amplifier.html#5-set-gain--10"
+  },"33": {
+    "doc": "5. Simulate the Amplifier",
+    "title": "6. Add the CNM25 model library",
+    "content": "Place SPICE3Lib → lib. Press q and enter exactly: . filename = 'cnm25mod.lib' section = ttt . The single quotes around the filename are required by SpiceOpus. ",
+    "url": "/simulate-amplifier.html#6-add-the-cnm25-model-library",
+    
+    "relUrl": "/simulate-amplifier.html#6-add-the-cnm25-model-library"
+  },"34": {
+    "doc": "5. Simulate the Amplifier",
+    "title": "7. Add the SPICE option",
+    "content": "Place SPICE3Lib → opt. Press q and set its options string to: . gmin=1e-15 . ",
+    "url": "/simulate-amplifier.html#7-add-the-spice-option",
+    
+    "relUrl": "/simulate-amplifier.html#7-add-the-spice-option"
+  },"35": {
+    "doc": "5. Simulate the Amplifier",
+    "title": "8. Final schematic check",
+    "content": "Your test circuit should look like this: . Click Check → Check CellView. Continue only when you have: . 0 warnings, 0 errors . ",
+    "url": "/simulate-amplifier.html#8-final-schematic-check",
+    
+    "relUrl": "/simulate-amplifier.html#8-final-schematic-check"
+  },"36": {
+    "doc": "5. Simulate the Amplifier",
+    "title": "9. Export the SPICE file",
+    "content": ". | Click File → Export → CDL. | Save directly into: | . apdk/spiceopus/Test.cir . | Make sure Add .end for SPICE is enabled. | Export. | . The menu says CDL, but for simulation type the output filename as Test.cir. ",
+    "url": "/simulate-amplifier.html#9-export-the-spice-file",
+    
+    "relUrl": "/simulate-amplifier.html#9-export-the-spice-file"
+  },"37": {
+    "doc": "5. Simulate the Amplifier",
+    "title": "10. Run SpiceOpus",
+    "content": ". | Open apdk/spiceopus/. | Launch spiceopus.bat (Windows) or spiceopus.sh (Linux). | At the prompt, enter: | . source Test.cir . If it says Failed to open Test.cir, make sure Test.cir is actually inside apdk/spiceopus/. A startup warning about missing xtendedlib.cm can be ignored for this transistor-only test. If SpiceOpus complains that the .lib filename needs single quotes, return to Glade and set: . 'cnm25mod.lib' . ",
+    "url": "/simulate-amplifier.html#10-run-spiceopus",
+    
+    "relUrl": "/simulate-amplifier.html#10-run-spiceopus"
+  },"38": {
+    "doc": "5. Simulate the Amplifier",
+    "title": "11. Plot input and output",
+    "content": "Run: . tran 1u 5m . Then: . plot v(vinp) v(vout) . Expected quick check: . | Input: about ±0.4 V | Output: about ±4 V | Gain: about 10 | . ",
+    "url": "/simulate-amplifier.html#11-plot-input-and-output",
+    
+    "relUrl": "/simulate-amplifier.html#11-plot-input-and-output"
+  },"39": {
+    "doc": "5. Simulate the Amplifier",
+    "title": "Optional DC check",
+    "content": "Before tran, you can run: . op print v(vdd) v(vinp) v(vout) . For this sine test, keep the source DC value at 0. ",
+    "url": "/simulate-amplifier.html#optional-dc-check",
+    
+    "relUrl": "/simulate-amplifier.html#optional-dc-check"
+  },"40": {
+    "doc": "5. Simulate the Amplifier",
+    "title": "5. Simulate the Amplifier",
+    "content": " ",
+    "url": "/simulate-amplifier.html",
+    
+    "relUrl": "/simulate-amplifier.html"
+  },"41": {
+    "doc": "SolidWorks/FreeCAD to LayoutEditor Workflow",
+    "title": "SolidWorks/FreeCAD to LayoutEditor Workflow",
+    "content": "This tutorial is for designs that begin as a complex 3D model or mechanical concept in SolidWorks or FreeCAD and need to be prepared for chip layout work. ",
+    "url": "/customdesign/solidworks-freecad-to-layouteditor.html",
+    
+    "relUrl": "/customdesign/solidworks-freecad-to-layouteditor.html"
+  },"42": {
+    "doc": "SolidWorks/FreeCAD to LayoutEditor Workflow",
+    "title": "Step 1: Prepare the CAD model",
+    "content": ". | Identify the 2D profile that should become the chip geometry. | Suppress or hide non-essential 3D details that do not belong in the layout. | Make sure the final profile is clean, closed, and dimensionally consistent. | . ",
+    "url": "/customdesign/solidworks-freecad-to-layouteditor.html#step-1-prepare-the-cad-model",
+    
+    "relUrl": "/customdesign/solidworks-freecad-to-layouteditor.html#step-1-prepare-the-cad-model"
+  },"43": {
+    "doc": "SolidWorks/FreeCAD to LayoutEditor Workflow",
+    "title": "Step 2: Export to DXF",
+    "content": ". | In SolidWorks or FreeCAD, export the selected sketch, face, or outline as .dxf. | Confirm the export uses the correct units and scale. | Prefer simple line and arc geometry over dense splines when possible. | If the model includes multiple features, export only the layers or contours you actually need. | . ",
+    "url": "/customdesign/solidworks-freecad-to-layouteditor.html#step-2-export-to-dxf",
+    
+    "relUrl": "/customdesign/solidworks-freecad-to-layouteditor.html#step-2-export-to-dxf"
+  },"44": {
+    "doc": "SolidWorks/FreeCAD to LayoutEditor Workflow",
+    "title": "Step 3: Import into LayoutEditor",
+    "content": ". | Open LayoutEditor and create a new cell for the imported geometry. | Import the .dxf file. | Check the import scale against a known dimension from the CAD model. | Move the geometry onto the correct origin and layer structure for your process. | . ",
+    "url": "/customdesign/solidworks-freecad-to-layouteditor.html#step-3-import-into-layouteditor",
+    
+    "relUrl": "/customdesign/solidworks-freecad-to-layouteditor.html#step-3-import-into-layouteditor"
+  },"45": {
+    "doc": "SolidWorks/FreeCAD to LayoutEditor Workflow",
+    "title": "Step 4: Prepare for lithography/fabrication",
+    "content": ". | Convert imported outlines into the process layers used by your flow. | Add alignment marks, frame geometry, and any required labels. | Remove stray segments, overlaps, and tiny fragments that could cause fabrication issues. | Run DRC-style spacing checks and verify minimum feature sizes. | Export the final layout to the format required by your fabrication flow. | . ",
+    "url": "/customdesign/solidworks-freecad-to-layouteditor.html#step-4-prepare-for-lithographyfabrication",
+    
+    "relUrl": "/customdesign/solidworks-freecad-to-layouteditor.html#step-4-prepare-for-lithographyfabrication"
+  },"46": {
+    "doc": "SolidWorks/FreeCAD to LayoutEditor Workflow",
+    "title": "Checklist",
+    "content": ". | DXF import scale matches the source CAD model. | Geometry is clean enough for lithography. | The correct layers are assigned before export. | Alignment and fabrication markers are present. | . Image placeholders: . | SolidWorks or FreeCAD model view | DXF export settings | Imported geometry in LayoutEditor | Final fabrication-ready layout | . ",
+    "url": "/customdesign/solidworks-freecad-to-layouteditor.html#checklist",
+    
+    "relUrl": "/customdesign/solidworks-freecad-to-layouteditor.html#checklist"
+  },"47": {
+    "doc": "4. Two-Stage CMOS Amplifier",
+    "title": "4. Build the Two-Stage CMOS Amplifier",
+    "content": "Build the amplifier as a normal Glade schematic first. Do not start the layout yet. | Create a cell named TwoStageCMOSAmp. | Open/create its schematic view. | Click Create → Instance for every device. | Use CNM25TechLib → cnm25modp → symbol for PMOS devices. | Use CNM25TechLib → cnm25modn → symbol for NMOS devices. | Press q on each MOS and enter its w, l, and m. | Wire the devices to match the schematic below. | . ",
+    "url": "/two-stage-cmos-amplifier.html#4-build-the-two-stage-cmos-amplifier",
+    
+    "relUrl": "/two-stage-cmos-amplifier.html#4-build-the-two-stage-cmos-amplifier"
+  },"48": {
+    "doc": "4. Two-Stage CMOS Amplifier",
+    "title": "CNM25 device sizes used here",
+    "content": "| Device group | W / L | . | Input PMOS pair | 30u / 3u | . | NMOS active-load pair | 7.5u / 3u | . | PMOS bias/mirror devices | 37.5u / 3u | . | NMOS bias device | 15u / 3u | . | NMOS ratio device | 60u / 3u | . | MOS current-setting device | 4.5u / 10u | . | Second-stage NMOS | 133.25u / 3u | . | Second-stage PMOS | 333u / 3u | . Use m=1 unless you intentionally split a device into fingers/multipliers. ",
+    "url": "/two-stage-cmos-amplifier.html#cnm25-device-sizes-used-here",
+    
+    "relUrl": "/two-stage-cmos-amplifier.html#cnm25-device-sizes-used-here"
+  },"49": {
+    "doc": "4. Two-Stage CMOS Amplifier",
+    "title": "Compensation capacitor",
+    "content": "Click Create → Instance, then choose CNM25TechLib → cnm25cpoly → symbol. Set: . w = 68.75u l = 68.75u m = 1 . This is approximately 2 pF at the typical CNM25 corner. ",
+    "url": "/two-stage-cmos-amplifier.html#compensation-capacitor",
+    
+    "relUrl": "/two-stage-cmos-amplifier.html#compensation-capacitor"
+  },"50": {
+    "doc": "4. Two-Stage CMOS Amplifier",
+    "title": "Bulk/body connections",
+    "content": ". | Every PMOS bulk → VDD | Every NMOS bulk → VSS | . In layout, the PMOS bulk is the NTUB/N-well connection. Do not leave MOS bulk pins floating. ",
+    "url": "/two-stage-cmos-amplifier.html#bulkbody-connections",
+    
+    "relUrl": "/two-stage-cmos-amplifier.html#bulkbody-connections"
+  },"51": {
+    "doc": "4. Two-Stage CMOS Amplifier",
+    "title": "External pins",
+    "content": "Create these top-level pins: . vinn vinp vout VDD VSS . ",
+    "url": "/two-stage-cmos-amplifier.html#external-pins",
+    
+    "relUrl": "/two-stage-cmos-amplifier.html#external-pins"
+  },"52": {
+    "doc": "4. Two-Stage CMOS Amplifier",
+    "title": "Check the amplifier",
+    "content": "Click Check → Check CellView. Fix everything until it reports: . 0 warnings, 0 errors . ",
+    "url": "/two-stage-cmos-amplifier.html#check-the-amplifier",
+    
+    "relUrl": "/two-stage-cmos-amplifier.html#check-the-amplifier"
+  },"53": {
+    "doc": "4. Two-Stage CMOS Amplifier",
+    "title": "Create the op-amp symbol",
+    "content": ". | Keep the amplifier schematic open. | Click Create → Create CellView from CellView. | Create a symbol view. | Choose a triangle shape. | Put: . | vinn, vinp on the left | vout on the right | VDD and VSS on top/bottom | . | Save the symbol. | . Now use this symbol in the simulation schematic. ",
+    "url": "/two-stage-cmos-amplifier.html#create-the-op-amp-symbol",
+    
+    "relUrl": "/two-stage-cmos-amplifier.html#create-the-op-amp-symbol"
+  },"54": {
+    "doc": "4. Two-Stage CMOS Amplifier",
+    "title": "4. Two-Stage CMOS Amplifier",
+    "content": " ",
+    "url": "/two-stage-cmos-amplifier.html",
+    
+    "relUrl": "/two-stage-cmos-amplifier.html"
+  }
+}

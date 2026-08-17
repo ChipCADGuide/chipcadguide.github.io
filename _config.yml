@@ -1,5 +1,5 @@
 title: Chip CAD Guide
-description: Step-by-step tutorials for basic .GDS chip layout at ~1 µm feature size.
+description: Concise Glade + SpiceOpus tutorials for the CNM25 CMOS APDK.
 remote_theme: just-the-docs/just-the-docs
 plugins:
   - jekyll-remote-theme
@@ -7,3 +7,9 @@ search_enabled: true
 color_scheme: dark
 enable_dark_mode: true
 logo: "media/SFU_logo.png"
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
