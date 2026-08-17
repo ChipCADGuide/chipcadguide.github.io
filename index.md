@@ -9,7 +9,7 @@ A short, click-by-click path for building and simulating CMOS circuits with the 
 
 This website was made by Group 12 in the **2026 Summer** semester for **ENSC 440** to teach fellow undergrad student how to make their own .GDS design.
 
-![Two-stage CMOS amplifier](./media/ANDGateLayout.png)
+![Two-stage CMOS amplifier](./media/Chip3D.png)
 
 ## Follow in order
 
